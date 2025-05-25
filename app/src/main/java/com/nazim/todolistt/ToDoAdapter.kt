@@ -28,9 +28,24 @@ class ToDoAdapter(private val toDoList: ArrayList<ModelClass>): RecyclerView.Ada
 
         val item = toDoList[position]
         holder.textView.text = item.text
+        holder.checkBox.setOnCheckedChangeListener(null)
         holder.checkBox.isChecked = toDoList[position].isDone
+
+        if(item.isDone){
+            holder.textView.paintFlags = holder.textView.paintFlags or android.graphics.Paint.STRIKE_THRU_TEXT_FLAG
+        }else{
+            holder.textView.paintFlags = holder.textView.paintFlags and android.graphics.Paint.STRIKE_THRU_TEXT_FLAG.inv()
+        }
+
         holder.checkBox.setOnCheckedChangeListener { _, isChecked ->
+
             toDoList[position].isDone = isChecked
+            if(isChecked){
+                holder.textView.paintFlags = holder.textView.paintFlags or android.graphics.Paint.STRIKE_THRU_TEXT_FLAG
+            }else{
+                holder.textView.paintFlags = holder.textView.paintFlags and android.graphics.Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+
         }
 
         holder.deleteButton.setOnClickListener {

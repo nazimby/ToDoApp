@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
+
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp"
     android:id="@+id/itemTextView">
@@ -13,6 +14,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/custom_purple"
         android:padding="10dp">
 
         <Button
@@ -33,7 +35,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="8dp"
             android:textSize="16sp"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/checkBox"
             app:layout_constraintTop_toTopOf="parent"
